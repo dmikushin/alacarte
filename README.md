@@ -1,6 +1,6 @@
 Memory cards rendering system for Georgian language learning.
 
-<img src="/kartuli.png" width="300px" />
+<img src="/kartuli_001.png" width="300px" />
 
 ## Prerequisites
 
