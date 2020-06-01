@@ -16,15 +16,15 @@ my($fontdir) = "./fonts";
 if (dirname(__FILE__) eq "/usr/bin")
 {
     $tmp = "/tmp";
-    $templatedir = "/usr/share/thaicards";
+    $templatedir = "/usr/share/kartuli";
     $imgdir = $templatedir;
     $fontdir = "$templatedir/fonts";
 }
 
-my($filename) = 'thaicards.json';
+my($filename) = 'kartvelebi.json';
 if (scalar(@ARGV) > 1)
 {
-	print "Usage: thaicards <json_filename>\n";
+	print "Usage: kartvelebi <json_filename>\n";
 	exit;
 }
 elsif (scalar(@ARGV) == 1)
@@ -40,7 +40,7 @@ my($json_text) = do {
 };
 
 my($content_template) = join("", `cat $templatedir/content.tex.in`);
-my($card_template) = join("", `cat $templatedir/thaicard.tex.in`);
+my($card_template) = join("", `cat $templatedir/kartuli.tex.in`);
 
 my($json) = JSON->new;
 my($cards) = $json->decode($json_text);
@@ -48,17 +48,19 @@ my($cards) = $json->decode($json_text);
 my($index) = 1;
 for ( @{$cards->{cards}} ) {
     my($topic) = $_->{topic};
-    my($russian) = $_->{russian};
+    my($georgian) = $_->{georgian};
     my($transcript) = $_->{transcript};
-    my($thai) = $_->{thai};
+    my($russian) = $_->{russian};
 
     # Parsing accents to colorize them.
+    $georgian =~ s/'(\w)/\\textcolor{red}{\\'$1}/g;
+    $transcript =~ s/'(\w)/\\textcolor{red}{\\'$1}/g;
     $russian =~ s/'(\w)/\\textcolor{red}{\\'$1}/g;
 
     my($content) = $content_template;
-    $content =~ s/#RUSSIAN#/$russian/;
+    $content =~ s/#GEORGIAN#/$georgian/;
     $content =~ s/#TRANSCRIPT#/$transcript/;
-    $content =~ s/#THAI#/$thai/;
+    $content =~ s/#RUSSIAN#/$russian/;
     $content =~ s/#FONTDIR#/$fontdir/g;
 
     my($content_filename) = sprintf("$tmp/content_%003d", $index);
@@ -81,7 +83,7 @@ for ( @{$cards->{cards}} ) {
     $card =~ s/#IMGDIR#/$imgdir/g;
     $card =~ s/#FONTDIR#/$fontdir/g;
 
-    my($card_filename) = sprintf("$tmp/thaicard_%003d", $index);
+    my($card_filename) = sprintf("$tmp/kartuli_%003d", $index);
     open my $fh2, ">", "$card_filename.tex" or die("Could not open file $card_filename.tex: $!");
     print $fh2 $card;
     close $fh2;

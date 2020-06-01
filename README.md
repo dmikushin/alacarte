@@ -1,4 +1,6 @@
-Memory cards rendering system for Thai language learning.
+Memory cards rendering system for Georgian language learning.
+
+<img src="/kartuli.png" width="300px" />
 
 ## Prerequisites
 

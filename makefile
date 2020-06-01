@@ -1,9 +1,9 @@
 install:
-	mkdir -p /usr/share/thaicards && \
-	cp -rf fonts /usr/share/thaicards/ && \
-	cp ./thaicards /usr/bin/thaicards && \
-	cp ./content.tex.in /usr/share/thaicards/content.tex.in && \
-	cp ./thaicard.tex.in /usr/share/thaicards/thaicard.tex.in && \
-	cp ./facebook.png /usr/share/thaicards/facebook.png && \
-	cp ./instagram.png /usr/share/thaicards/instagram.png && \
-	cp ./thaicard.png /usr/share/thaicards/thaicard.png
+	mkdir -p /usr/share/kartuli && \
+	cp -rf fonts /usr/share/kartuli/ && \
+	cp ./kartuli /usr/bin/kartuli && \
+	cp ./content.tex.in /usr/share/kartuli/content.tex.in && \
+	cp ./kartuli.tex.in /usr/share/kartuli/kartuli.tex.in && \
+	cp ./facebook.png /usr/share/kartuli/facebook.png && \
+	cp ./instagram.png /usr/share/kartuli/instagram.png && \
+	cp ./kartuli.png /usr/share/kartuli/kartuli.png

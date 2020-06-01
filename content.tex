@@ -4,10 +4,10 @@
 \usepackage[paperheight=30in,paperwidth=15in,margin=0.5in]{geometry}
 \usepackage{fontspec}
 \usepackage{polyglossia}
-\setdefaultlanguage{thai}
+\setdefaultlanguage{georgian}
 \setotherlanguages{english,russian}
 \newfontfamily\cyrillicfont{Tahoma Bold}[Path=./fonts/,Script=Cyrillic]
-\newfontfamily\thaifont{Sathu}[Path=./fonts/,Script=Thai,Scale=MatchLowercase,WordSpace=1.25,Mapping=tex-text]
+\setmainfont{DejaVuSerif}[Path=./fonts/,Scale=MatchLowercase,NFSSFamily=georgian,Extension=.ttf,UprightFont={*},BoldFont={*-Bold},ItalicFont={*-Italic},BoldItalicFont={*-BoldItalic}]
 \usepackage{xunicode}
 \usepackage{xltxtra}
 \pagestyle{empty}
@@ -17,19 +17,19 @@
 \vfill
 \begin{center}
 %
+% Georgian word
+%
+\resizebox*{\textwidth}{!}{\textbf{გამარჯ\textcolor{red}{\'ო}ბა}}
+\vskip0.7in
+%
+% Russian transcription
+%
+\resizebox*{\textwidth}{!}{\textrussian{[га-мар-дж\textcolor{red}{\'о}-ба]}}
+\vskip0.7in
+%
 % Russian word
 %
-\resizebox*{\textwidth}{!}{\textrussian{\textbf{телослож\textcolor{red}{\'е}ние}}}
-\vskip0.7in
-%
-% Thai transcription
-%
-\resizebox*{\textwidth}{!}{[ประเ-ภทข-\textcolor{red}{องร่า}-งกาย]}
-\vskip0.7in
-%
-% Thai word
-%
-\resizebox*{\textwidth}{!}{\textbf{(ประเภทของร่า)งกาย}}
+\resizebox*{\textwidth}{!}{\textrussian{\textbf{здр\textcolor{red}{\'а}вствуйте}}}
 \end{center}
 \vfill
 \hspace{0pt}

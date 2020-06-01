@@ -1,4 +1,5 @@
 \documentclass[]{extarticle}
+\usepackage{comment}
 \usepackage[hidelinks]{hyperref}
 \usepackage{stackengine,xcolor}
 
@@ -43,11 +44,11 @@
 \usepackage{tikz}
 \usepackage{fontspec}
 \usepackage{polyglossia}
-\setdefaultlanguage{thai}
+\setdefaultlanguage{georgian}
 \setotherlanguages{english,russian}
 \newfontfamily\footerfont[Path=./fonts/,SizeFeatures={Size=30}]{Tahoma}
-\newfontfamily\cyrillicfont{Path=./fonts/,Tahoma Bold}[Script=Cyrillic]
-\newfontfamily\thaifont{Sathu}[Path=./fonts/,Script=Thai,Scale=MatchLowercase,WordSpace=1.25,Mapping=tex-text]
+\newfontfamily\cyrillicfont{Tahoma Bold}[Path=./fonts/,Script=Cyrillic]
+\setmainfont{DejaVuSerif}[Path=./fonts/,Scale=MatchLowercase,NFSSFamily=georgian,Extension=.ttf,UprightFont={*},BoldFont={*-Bold},ItalicFont={*-Italic},BoldItalicFont={*-BoldItalic}]
 \usepackage{xunicode}
 \usepackage{xltxtra}
 \pagestyle{empty}
@@ -57,7 +58,7 @@
 %
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0] at (current page.center)
-{\includegraphics[width=\paperwidth,height=\paperheight]{thaicard.png}};
+{\includegraphics[width=\paperwidth,height=\paperheight]{#IMGDIR#/kartuli.png}};
 \end{tikzpicture}
 \def\primarycolor{orange!99}
 \def\secondarycolor{black}
@@ -66,27 +67,29 @@
 %
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0,yshift=-0.5in,anchor=north] at (current page.north)
-{\resizebox*{\textwidth}{!}{\shadowfy{คำศัพท์ วลี และประโยคต่างๆที่เกี่ยวกับ “รูปลักษณ์”}}};
+{\resizebox*{\textwidth}{!}{\shadowfy{#TOPIC#}}};
 \end{tikzpicture}
+\begin{comment}
 %
 % Footer links
 %
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0,yshift=-6.6in,anchor=west] at (current page.center)
-{\includegraphics[width=31pt]{facebook.png}};
+{\includegraphics[width=31pt]{#IMGDIR#/facebook.png}};
 \node[inner sep=0,yshift=-7.1in,anchor=west] at (current page.center)
-{\includegraphics[width=31pt]{instagram.png}};
+{\includegraphics[width=31pt]{#IMGDIR#/instagram.png}};
 \node[inner sep=36pt,yshift=-6.6in,anchor=west] at (current page.center)
 {\footerfont{\href{facebook.com/russianforthaisbyjibby}{facebook.com/russianforthaisbyjibby}}};
 \node[inner sep=36pt,yshift=-7.1in,anchor=west] at (current page.center)
 {\footerfont{\href{instagram.com/russianforthaisbyjibby}{instagram.com/russianforthaisbyjibby}}};
 \end{tikzpicture}
+\end{comment}
 %
 % Content
 %
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0] at (current page.center)
-{\includegraphics[width=0.9\paperwidth,height=0.8\paperheight,keepaspectratio]{content-crop.pdf}};
+{\includegraphics[width=0.9\paperwidth,height=0.8\paperheight,keepaspectratio]{#CONTENT#}};
 \end{tikzpicture}
 \pagebreak
 \end{document}
