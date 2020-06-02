@@ -1,7 +1,7 @@
 install:
 	mkdir -p /usr/share/kartuli && \
 	cp -rf fonts /usr/share/kartuli/ && \
-	cp ./kartuli /usr/bin/kartuli && \
+	cp ./kartvelebi /usr/bin/kartvelebi && \
 	cp ./content.tex.in /usr/share/kartuli/content.tex.in && \
 	cp ./kartuli.tex.in /usr/share/kartuli/kartuli.tex.in && \
 	cp ./facebook.png /usr/share/kartuli/facebook.png && \
