@@ -21,10 +21,10 @@ if (dirname(__FILE__) eq "/usr/bin")
     $fontdir = "$templatedir/fonts";
 }
 
-my($filename) = 'kartvelebi.json';
+my($filename) = 'kartuli.json';
 if (scalar(@ARGV) > 1)
 {
-	print "Usage: kartvelebi <json_filename>\n";
+	print "Usage: kartuli <json_filename>\n";
 	exit;
 }
 elsif (scalar(@ARGV) == 1)
