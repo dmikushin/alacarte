@@ -57,7 +57,12 @@
 % Background
 %
 \begin{tikzpicture}[remember picture,overlay]
-\node[inner sep=0] at (current page.center)
+\node (whiteboard) at (current page.center) [
+        rectangle, fill=white,
+        minimum width=\paperwidth,
+        minimum height=\paperheight,
+    ] {};
+\node[inner sep=0, opacity=.3] at (current page.center)
 {\includegraphics[width=\paperwidth,height=\paperheight]{#IMGDIR#/#IMGNUM#.png}};
 \end{tikzpicture}
 \def\primarycolor{orange!99}

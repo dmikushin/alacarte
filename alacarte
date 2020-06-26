@@ -77,14 +77,15 @@ for ( @{$cards->{cards}} ) {
     system("rm $content_filename.pdf");
 
     my($card) = $card_template;
-    opendir my $dh, $imgdir;
-    my($imgcount) = () = readdir($dh);
+    opendir my $dh, "$imgdir/artwork";
+    my($imgcount) = grep { -f "$imgdir/artwork/$_" } readdir($dh);
     closedir $dh;
-    $imgnum = rand($imgcount) + 1;
+    print "The number of images in $imgdir/artwork is $imgcount\n";
+    my($imgnum) = sprintf("%02d", (int rand($imgcount)) + 1);
     $card =~ s/#TOPIC#/$topic/;
     $card =~ s/#CONTENT#/$content_filename-crop.pdf/;
-    $card =~ s/#IMGDIR#/artwork\/$imgdir/g;
-    $card =~ s/#IMGNUM#/$imgnum/g;
+    $card =~ s/#IMGDIR#/$imgdir/g;
+    $card =~ s/#IMGNUM#/artwork\/$imgnum/g;
     $card =~ s/#FONTDIR#/$fontdir/g;
 
     my($card_filename) = sprintf("$tmp/alacarte_%003d", $index);
