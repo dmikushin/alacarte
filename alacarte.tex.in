@@ -72,7 +72,7 @@
 %
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0,yshift=-0.5in,anchor=north] at (current page.north)
-{\resizebox*{\textwidth}{!}{\shadowfy{#TOPIC#}}};
+{\resizebox*{0.3\textwidth}{!}{\shadowfy{#TOPIC#}}};
 \end{tikzpicture}
 \begin{comment}
 %
