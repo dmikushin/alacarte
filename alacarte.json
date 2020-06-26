@@ -1,27 +1,21 @@
 {
     "cards":[
     {
-        "topic":"კარგი მანერები",
-        "french":"გამარჯ'ობა",
-        "transcript":"[га-мар-дж'о-ба]",
+        "topic":"la politesse",
+        "french":"bonjo'ur",
+        "transcript":"[бон-ж'ур]",
         "russian":"здр'авствуйте"
     },
     {
-        "topic":"კარგი მანერები",
-        "french":"ნახვამდ'ის",
-        "transcript":"[нагх-вам-д'ис]",
+        "topic":"la politesse",
+        "french":"au revo'ir",
+        "transcript":"[а ре-ву-'ар]",
         "russian":"д'о свид'ания"
     },
     {
-        "topic":"კარგი მანერები",
-        "french":"დ'ილა მშვიდობ'ისა",
-        "transcript":"[д'ила м-шви-до-б'и-са]",
-        "russian":"д'оброе 'утро"
-    },
-    {
-        "topic":"კარგი მანერები",
-        "french":"ღ'ამე მშვიდობ'ისა",
-        "transcript":"[гх'а-мэ м-шви-до-б'и-са]",
+        "topic":"la politesse",
+        "french":"b'onne nu'it",
+        "transcript":"[б'оннь нью'и]",
         "russian":"спок'ойной н'очи"
     }
     ]
