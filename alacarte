@@ -16,15 +16,15 @@ my($fontdir) = "./fonts";
 if (dirname(__FILE__) eq "/usr/bin")
 {
     $tmp = "/tmp";
-    $templatedir = "/usr/share/kartuli";
+    $templatedir = "/usr/share/alacarte";
     $imgdir = $templatedir;
     $fontdir = "$templatedir/fonts";
 }
 
-my($filename) = 'kartuli.json';
+my($filename) = 'alacarte.json';
 if (scalar(@ARGV) > 1)
 {
-	print "Usage: kartuli <json_filename>\n";
+	print "Usage: alacarte <json_filename>\n";
 	exit;
 }
 elsif (scalar(@ARGV) == 1)
@@ -40,7 +40,7 @@ my($json_text) = do {
 };
 
 my($content_template) = join("", `cat $templatedir/content.tex.in`);
-my($card_template) = join("", `cat $templatedir/kartuli.tex.in`);
+my($card_template) = join("", `cat $templatedir/alacarte.tex.in`);
 
 my($json) = JSON->new;
 my($cards) = $json->decode($json_text);
@@ -48,17 +48,17 @@ my($cards) = $json->decode($json_text);
 my($index) = 1;
 for ( @{$cards->{cards}} ) {
     my($topic) = $_->{topic};
-    my($georgian) = $_->{georgian};
+    my($french) = $_->{french};
     my($transcript) = $_->{transcript};
     my($russian) = $_->{russian};
 
     # Parsing accents to colorize them.
-    $georgian =~ s/'(\w)/\\textcolor{red}{\\'$1}/g;
+    $french =~ s/'(\w)/\\textcolor{red}{\\'$1}/g;
     $transcript =~ s/'(\w)/\\textcolor{red}{\\'$1}/g;
     $russian =~ s/'(\w)/\\textcolor{red}{\\'$1}/g;
 
     my($content) = $content_template;
-    $content =~ s/#GEORGIAN#/$georgian/;
+    $content =~ s/#FRENCH#/$french/;
     $content =~ s/#TRANSCRIPT#/$transcript/;
     $content =~ s/#RUSSIAN#/$russian/;
     $content =~ s/#FONTDIR#/$fontdir/g;
@@ -77,12 +77,17 @@ for ( @{$cards->{cards}} ) {
     system("rm $content_filename.pdf");
 
     my($card) = $card_template;
+    opendir my $dh, $imgdir;
+    my($imgcount) = () = readdir($dh);
+    closedir $dh;
+    $imgnum = rand($imgcount) + 1;
     $card =~ s/#TOPIC#/$topic/;
     $card =~ s/#CONTENT#/$content_filename-crop.pdf/;
-    $card =~ s/#IMGDIR#/$imgdir/g;
+    $card =~ s/#IMGDIR#/artwork\/$imgdir/g;
+    $card =~ s/#IMGNUM#/$imgnum/g;
     $card =~ s/#FONTDIR#/$fontdir/g;
 
-    my($card_filename) = sprintf("$tmp/kartuli_%003d", $index);
+    my($card_filename) = sprintf("$tmp/alacarte_%003d", $index);
     open my $fh2, ">", "$card_filename.tex" or die("Could not open file $card_filename.tex: $!");
     print $fh2 $card;
     close $fh2;

@@ -4,11 +4,11 @@
 \usepackage[paperheight=30in,paperwidth=15in,margin=0.5in]{geometry}
 \usepackage{fontspec}
 \usepackage{polyglossia}
-\setdefaultlanguage{georgian}
+\setdefaultlanguage{french}
 \setotherlanguages{english,russian}
 \newfontfamily\footerfont[Path=#FONTDIR#/,SizeFeatures={Size=30}]{Tahoma}
 \newfontfamily\cyrillicfont{Tahoma Bold}[Path=#FONTDIR#/,Script=Cyrillic]
-\setmainfont{DejaVuSerif}[Path=#FONTDIR#/,Scale=MatchLowercase,NFSSFamily=georgian,Extension=.ttf,UprightFont={*},BoldFont={*-Bold},ItalicFont={*-Italic},BoldItalicFont={*-BoldItalic}]
+\setmainfont{DejaVuSerif}[Path=#FONTDIR#/,Scale=MatchLowercase,NFSSFamily=french,Extension=.ttf,UprightFont={*},BoldFont={*-Bold},ItalicFont={*-Italic},BoldItalicFont={*-BoldItalic}]
 \usepackage{xunicode}
 \usepackage{xltxtra}
 \pagestyle{empty}
@@ -18,9 +18,9 @@
 \vfill
 \begin{center}
 %
-% Georgian word
+% French word
 %
-\resizebox*{\textwidth}{!}{\textbf{#GEORGIAN#}}
+\resizebox*{\textwidth}{!}{\textbf{#FRENCH#}}
 \vskip0.7in
 %
 % Russian transcription

@@ -1,4 +1,4 @@
-Memory cards rendering system for Georgian language learning.
+Memory cards rendering system for French language learning.
 
 <img src="/example.png" width="300px" />
 
