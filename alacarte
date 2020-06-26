@@ -7,6 +7,9 @@ use Cwd;
 use JSON qw( );
 use File::Basename;
 
+# Randomize seed.
+srand(time ^ $$ ^ unpack "%32L*", `ps wwaxl | gzip`);
+
 # Check whether we run in the development mode (current directory),
 # or in production mode (all file I/O in /tmp folder).
 my($tmp) = ".";
@@ -80,7 +83,6 @@ for ( @{$cards->{cards}} ) {
     opendir my $dh, "$imgdir/artwork";
     my($imgcount) = grep { -f "$imgdir/artwork/$_" } readdir($dh);
     closedir $dh;
-    print "The number of images in $imgdir/artwork is $imgcount\n";
     my($imgnum) = sprintf("%02d", (int rand($imgcount)) + 1);
     $card =~ s/#TOPIC#/$topic/;
     $card =~ s/#CONTENT#/$content_filename-crop.pdf/;
